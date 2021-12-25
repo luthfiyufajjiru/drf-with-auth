@@ -1,0 +1,23 @@
+version: '3.3'
+
+services:
+  db:
+    image: postgres:12
+    volumes: 
+      - ~/data/postgresql/drf-with-auth:/var/lib/postgresql/data
+    ports:
+      - 4500:5432
+    env_file:
+      - db.env
+  api:
+    build: .
+    command: > 
+      bash -c "
+      python manage.py makemigrations
+      && python manage.py wait_for_database
+      && python manage.py migrate
+      && python manage.py runserver 0.0.0.0:8000"
+    ports:
+      - 8000:8000
+    depends_on: 
+      - db

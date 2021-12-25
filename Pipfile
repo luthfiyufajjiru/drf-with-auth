@@ -1,0 +1,20 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+pyyaml = "*"
+django = "~=3.2.4"
+psycopg2 = "*"
+djangorestframework = "*"
+uritemplate = "*"
+drf-spectacular = "*"
+django-rest-passwordreset = "*"
+django-probes = "*"
+djangorestframework-simplejwt = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.7"
